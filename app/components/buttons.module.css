@@ -1,0 +1,50 @@
+.buttonSign, .closeButton{
+    border: 0px solid #ffffff;
+}
+.buttonSign {
+  background-color: #89a7a9;
+  text-align: center;
+  font-size: 1.2rem;
+
+  color: #ffffff;
+
+  font-weight: 600;
+  font-style: normal;
+  line-height: normal;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.buttonSign:hover {
+  background-color: #4d696a;
+  cursor: pointer;
+}
+.closeButton {
+  align-content: center;
+  justify-content: center;
+  background-color: #ffffff00;
+}
+.closeIcon {
+  filter: invert(39%) sepia(3%) saturate(99%) hue-rotate(314deg) brightness(92%)
+    contrast(85%);
+  transition: filter 0.1s ease-in;
+}
+.closeIcon:hover {
+  filter: invert(77%) sepia(9%) saturate(2411%) hue-rotate(66deg)
+    brightness(112%) contrast(102%);
+  cursor: pointer;
+}
+
+@media (min-width: 720px) {
+  .buttonSign {
+    width: 158px;
+    height: 48px;
+    border-radius: 10px;
+  }
+}
+@media (max-width: 719px) {
+    .buttonSign {
+        width: 79px;
+        height: 35px;
+        border-radius: 7px;
+    }
+}

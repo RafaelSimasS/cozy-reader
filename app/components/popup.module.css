@@ -1,0 +1,50 @@
+.signUpContainer, .row{
+    display: flex;
+}
+
+.signUpContainer {
+  flex-direction: column;
+  background: #d9d9d9;
+  flex-shrink: 0;
+}
+.row {
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.SignTitle {
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #453e3e;
+}
+@media (min-width: 720px) {
+  .signUpContainer {
+    width: 375px;
+    height: 375px;
+    border-radius: 14px;
+  }
+  .row {
+    margin-top: 15px;
+    margin-right: 22px;
+  }
+  .SignTitle {
+    font-size: 20px;
+    margin-right: 107px;
+  }
+}
+
+@media (max-width: 719px) {
+    .signUpContainer {
+        width: 300px;
+        height: 400px;
+        border-radius: 7px;
+    }
+    .row {
+        margin-top: 14px;
+        margin-right: 15px;
+    }
+    .SignTitle {
+        font-size: 20px;
+        margin-right: 76px;
+    }
+}
