@@ -1,6 +1,12 @@
-import Link from "next/link";
+"use client"
 
-import utilsStyle from "../../styles/utils.module.css";
+import Link from "next/link";
+import Image from "next/image";
+
+import utilsStyle from "@/styles/utils.module.css";
+import popupStyle from "./CredentialsPopup/popup.module.css";
+import buttonStyle from "@/styles/buttons.module.css";
+
 
 import { Cairo } from "next/font/google";
 import { NextFont } from "next/dist/compiled/@next/font";
@@ -9,12 +15,14 @@ const cairo: NextFont = Cairo({
   display: "swap",
 });
 
-import { CredentialPopup } from "./CredentialsPopup/CredentialPopup";
-import { authOptions } from "../api/auth/[...nextauth]/route";
-import { getServerSession } from "next-auth";
+import { signIn, signOut, useSession } from "next-auth/react";
 
-export default async function Navbar() {
-  const session = await getServerSession(authOptions);
+import { CredentialPopup } from "./CredentialsPopup/CredentialPopup";
+import { Button } from "./Button/Button";
+
+
+export default function Navbar() {
+  const {data: session } = useSession();
   return (
     <nav className={`navCenter`}>
       <Link href="/" className={`Logo ${cairo.className} ${utilsStyle.mL8} `}>
@@ -32,7 +40,13 @@ export default async function Navbar() {
             <CredentialPopup
               title="Sign Up"
               isLoginButton={false}
-            ></CredentialPopup>
+            >
+              <div  className={`${popupStyle.row} ${popupStyle.oauthRow}`}>
+                <Button className={`${buttonStyle.iconButton} ${buttonStyle.gitHubIcon}`}
+                onClick={() => signIn("github")}
+                ></Button>
+              </div>
+            </CredentialPopup>
           </>
         )}
       </div>

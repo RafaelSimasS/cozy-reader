@@ -1,5 +1,5 @@
 import '../styles/globals.css';
-
+import { NextAuthProvider } from './providers';
 export default function RootLayout({ children} : { children: React.ReactNode; }) {
   return (
     <html lang="pt">
@@ -9,7 +9,11 @@ export default function RootLayout({ children} : { children: React.ReactNode; })
         <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
         <link rel="manifest" href="/icons/site.webmanifest" />
       </head>
-      <body>{children}</body>
+      <body>
+        <NextAuthProvider>
+          {children}
+        </NextAuthProvider>
+      </body>
     </html>
   );
 }

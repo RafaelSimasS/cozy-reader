@@ -1,5 +1,8 @@
-.buttonSign, .closeButton{
+.buttonSign, .closeButton, .iconButton{
     border: 0px solid #ffffff;
+}
+.buttonSign:hover, .closeIcon:hover, .iconButton:hover{
+  cursor: pointer;
 }
 .buttonSign {
   background-color: #89a7a9;
@@ -16,7 +19,6 @@
 
 .buttonSign:hover {
   background-color: #4d696a;
-  cursor: pointer;
 }
 .closeButton {
   align-content: center;
@@ -31,9 +33,24 @@
 .closeIcon:hover {
   filter: invert(77%) sepia(9%) saturate(2411%) hue-rotate(66deg)
     brightness(112%) contrast(102%);
-  cursor: pointer;
+}
+.iconButton{
+  background-color: #ffffff00;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color .4s ease-in-out;
 }
 
+.gitHubIcon{
+  background-image: url("/icons/icon-github.svg");
+}
+
+.iconButton:hover{
+  background-color: #8fc7c96b;
+}
 @media (min-width: 720px) {
   .buttonSign {
     width: 158px;
