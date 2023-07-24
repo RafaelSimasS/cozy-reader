@@ -1,7 +1,7 @@
-.buttonSign, .closeButton, .iconButton{
+.buttonSign, .closeButton, .iconButton, .menuHamburgerButton{
     border: 0px solid #ffffff;
 }
-.buttonSign:hover, .closeIcon:hover, .iconButton:hover{
+.buttonSign:hover, .closeIcon:hover, .iconButton:hover, .menuHamburgerButton:hover{
   cursor: pointer;
 }
 .buttonSign {
@@ -16,6 +16,20 @@
   line-height: normal;
   transition: background-color 0.2s ease-in-out;
 }
+.iconButton, .menuHamburgerButton{
+  background-color: #ffffff00;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+  transition: background-color .4s ease-in-out;
+}
+.iconButton{
+  border-radius: 50%;
+}
+.iconButton:hover{
+  background-color: #5469696b;
+}
 
 .buttonSign:hover {
   background-color: #4d696a;
@@ -25,32 +39,25 @@
   justify-content: center;
   background-color: #ffffff00;
 }
-.closeIcon {
+.closeIcon, .menuHamburgerIcon {
   filter: invert(39%) sepia(3%) saturate(99%) hue-rotate(314deg) brightness(92%)
     contrast(85%);
   transition: filter 0.1s ease-in;
 }
-.closeIcon:hover {
+.closeIcon:hover, .menuHamburgerButton:hover {
   filter: invert(77%) sepia(9%) saturate(2411%) hue-rotate(66deg)
     brightness(112%) contrast(102%);
 }
-.iconButton{
-  background-color: #ffffff00;
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  transition: background-color .4s ease-in-out;
-}
-
 .gitHubIcon{
   background-image: url("/icons/icon-github.svg");
 }
-
-.iconButton:hover{
-  background-color: #8fc7c96b;
+.googleIcon{
+  background-image: url("/icons/icon-google.svg");
 }
+.menuHamburgerIcon{
+  background-image: url("/icons/menu-hamburger.svg");
+}
+
 @media (min-width: 720px) {
   .buttonSign {
     width: 158px;

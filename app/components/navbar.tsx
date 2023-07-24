@@ -1,12 +1,11 @@
-"use client"
-
+"use client";
 import Link from "next/link";
-import Image from "next/image";
 
+import { Button } from "@/app/components/Button/Button";
 import utilsStyle from "@/styles/utils.module.css";
-import popupStyle from "./CredentialsPopup/popup.module.css";
 import buttonStyle from "@/styles/buttons.module.css";
 
+import { signIn, signOut, useSession } from "next-auth/react";
 
 import { Cairo } from "next/font/google";
 import { NextFont } from "next/dist/compiled/@next/font";
@@ -15,40 +14,25 @@ const cairo: NextFont = Cairo({
   display: "swap",
 });
 
-import { signIn, signOut, useSession } from "next-auth/react";
-
-import { CredentialPopup } from "./CredentialsPopup/CredentialPopup";
-import { Button } from "./Button/Button";
-
+/* type NavbarProps = {
+  children?: React.ReactNode
+} */
 
 export default function Navbar() {
-  const {data: session } = useSession();
+  const { data: session, status: status } = useSession();
   return (
     <nav className={`navCenter`}>
       <Link href="/" className={`Logo ${cairo.className} ${utilsStyle.mL8} `}>
         COZY READER
       </Link>
       <div className={` ${utilsStyle.separateGap} ${utilsStyle.mR22} `}>
-        {session ? (
-          <></>
-        ) : (
-          <>
-            <CredentialPopup
-              title="Log In"
-              isLoginButton={true}
-            ></CredentialPopup>
-            <CredentialPopup
-              title="Sign Up"
-              isLoginButton={false}
-            >
-              <div  className={`${popupStyle.row} ${popupStyle.oauthRow}`}>
-                <Button className={`${buttonStyle.iconButton} ${buttonStyle.gitHubIcon}`}
-                onClick={() => signIn("github")}
-                ></Button>
-              </div>
-            </CredentialPopup>
-          </>
-        )}
+        <h5 className={` ${cairo.className}  `}>
+          Hello, {session?.user?.name}
+        </h5>
+        <Button
+          className={`${buttonStyle.menuHamburgerButton} ${buttonStyle.menuHamburgerIcon}`}
+          onClick={() => signOut()}
+        ></Button>
       </div>
     </nav>
   );
